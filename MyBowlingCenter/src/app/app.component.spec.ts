@@ -32,4 +32,6 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('MyBowlingCenter app is running!');
   });
+
+  
 });
