@@ -26,12 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('MyBowlingCenter');
   });
 
-  it('should render title', () => {
+  it('should contain 2', () =>{
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('MyBowlingCenter app is running!');
-  });
-
-  
+    const app = fixture.componentInstance;
+    app.addBall(2);
+    expect(app.scores).toContain(2);
+  })
 });
