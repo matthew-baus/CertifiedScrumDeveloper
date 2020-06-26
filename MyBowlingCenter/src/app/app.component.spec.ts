@@ -32,4 +32,13 @@ describe('AppComponent', () => {
     app.addBall(2);
     expect(app.scores).toContain(2);
   })
+
+  it('should contain 4', () =>{
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.addBall(4);
+    expect(app.scores).toContain(4);
+  })
 });
+
+
