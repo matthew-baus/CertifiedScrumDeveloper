@@ -15,4 +15,6 @@ export class AppComponent {
   decrement(): void {
     this.counter--
   }
+
+  enter():void{}
 }
