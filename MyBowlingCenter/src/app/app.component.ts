@@ -1,24 +1,25 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <input #newScore
-      (keyup.enter)="addBall(newScore.value)"
-      (blur)="addBall(newScore.value); newScore.value='' ">
-
-    <button (click)="addBall(newScore.value)">Pins Down</button><br><br>
-
-    <table><tr><td *ngFor="let score of scores">{{score}}</td></tr></table>
-  `
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.sass"]
 })
 export class AppComponent {
-  title = 'MyBowlingCenter';
+  counter = 0;
+  total = 0;
+  score = 0;
 
-  scores = [];
-  addBall(newScore: Number) {
-    if (newScore) {
-      this.scores.push(newScore);
-    }
+  increment(): void {
+    this.counter++;
+  }
+
+  decrement(): void {
+    this.counter--;
+  }
+
+  enter(score): void {
+    this.score = score;
+    this.total += this.score;
   }
 }

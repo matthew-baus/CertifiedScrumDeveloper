@@ -310,7 +310,9 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
+<div>
+<input name="score"><br>
+<button id="enter" (click)="enter(score)">Enter Score</button>
+<h3 id="total">{{ total }}</h3></div>
 
 <router-outlet></router-outlet>
