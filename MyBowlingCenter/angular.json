@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MyBowlingCenter"
+    }
+  },
+  "defaultProject": "MyBowlingCenter",
+  "cli": {
+    "analytics": "54332a56-c50d-492d-bbe6-2d55ac7277df"
+  }
 }
