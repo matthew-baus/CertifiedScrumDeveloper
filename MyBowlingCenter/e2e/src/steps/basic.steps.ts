@@ -15,21 +15,28 @@ Given('I am bowling', async () => {
     await page.navigateTo();
   });
 
-When('I knock down {int} pins on the first ball', function (int) {
+When('I knock down {int} pins on the first ball', async (int) => {
 // When('I knock down {float} pins on the first ball', function (float) {
     // Write code here that turns the phrase above into concrete actions
-    const firstBall = element(by.id("firstBall")).getText();
+    var firstBall = element(by.id("firstBall"));
+    firstBall = int;
 });
 
-When('{int} pins on the second ball', function (int) {
+When('{int} pins on the second ball', async (int) => {
     // When('{float} pins on the second ball', function (float) {
         // Write code here that turns the phrase above into concrete actions
-        const secondBall = element(by.id("secondBall")).getText();
+        var secondBall = element(by.id("secondBall"));
+        secondBall = int;
+
+        const enterButton = element(by.id("enterButton"));
+        await enterButton.click();
     });
 
-Then('the total will show {int}', function (int) {
+Then('the total will show {int}', async (int) => {
     // Then('the total will show {float}', function (float) {
         // Write code here that turns the phrase above into concrete actions
-        expect();
+        var total = element(by.id("total")).getText();
+
+        expect(await element(by.id("total")).getText()).to.equal(int);
     });
 
