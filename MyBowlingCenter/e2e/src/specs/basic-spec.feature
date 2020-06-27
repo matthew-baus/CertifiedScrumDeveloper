@@ -1,7 +1,8 @@
-Feature: Increment the counter
-    This feature lets a user increment the counter by clicking on the button.
+Feature: Total for one frame
+    This feature totals up the scores for one frame
 
-Scenario: Basic increment scenario
-    Given I am on the home page
-    When I click on the increment button 21 times
-    Then The counter should show "21"
+Scenario: Basic frame scenario
+    Given I am bowling
+    When I knock down 2 pins on the first ball
+    And 4 pins on the second ball
+    Then the total will show 6

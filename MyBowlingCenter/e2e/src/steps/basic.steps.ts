@@ -10,20 +10,26 @@ Before(() => {
   page = new AppPage();
 });
 
-Given("I am on the home page", async () => {
-  // Navigate to home page.
-  await page.navigateTo();
+Given('I am bowling', async () => {
+    // Write code here that turns the phrase above into concrete actions
+    await page.navigateTo();
+  });
+
+When('I knock down {int} pins on the first ball', function (int) {
+// When('I knock down {float} pins on the first ball', function (float) {
+    // Write code here that turns the phrase above into concrete actions
+    const firstBall = element(by.id("firstBall")).getText();
 });
 
-When("I click on the increment button {int} times", async (x: number) => {
-  // Click on the increment button x times.
-  const incrementButton = element(by.id("increment"));
-  for (let index = 0; index < x; index++) {
-    await incrementButton.click();
-  }
-});
+When('{int} pins on the second ball', function (int) {
+    // When('{float} pins on the second ball', function (float) {
+        // Write code here that turns the phrase above into concrete actions
+        const secondBall = element(by.id("secondBall")).getText();
+    });
 
-Then("The counter should show {string}", async (x: string) => {
-  // Expect that we get the correct value showing
-  expect(await element(by.id("counter")).getText()).to.equal(x);
-});
+Then('the total will show {int}', function (int) {
+    // Then('the total will show {float}', function (float) {
+        // Write code here that turns the phrase above into concrete actions
+        expect();
+    });
+
