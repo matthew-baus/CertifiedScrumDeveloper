@@ -1,8 +1,8 @@
 export class Frame{
     
-    currentBall: number = 1;
+    currentBall: number = 0;
     numOfBalls: number = 2;
-    balls: Array<number>;
+    balls: Array<number> = new Array<number>();
 
     contructor(){
         this.balls = new Array<number>();
@@ -14,20 +14,22 @@ export class Frame{
 
     addBall(numOfPins: number) {
         
-        if(this.balls.length == this.numOfBalls){
-            this.currentBall = 1;
+        if(this.balls.length == (this.numOfBalls -1)){
+            this.currentBall = 0;
             return;
         }
-
+        console.log(`add ball: ${numOfPins}`);
         this.balls.push(numOfPins);
     }
 
     getTotal() : number {
         let total = 0;
         
-        this.balls.forEach(element => {
-            total += element;
-        });
+        for(let ball : number = 0; ball < this.numOfBalls; ball++)
+        {
+            console.log(`Ball score: ${this.balls[ball]}`);
+            total += this.balls[ball];
+        }
 
         return total;
     }

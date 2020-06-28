@@ -24,16 +24,16 @@ export class BowlingService {
     
   this.numOfBalls = 2;
   this.numOfFrames = 10;
-  this.currentFrame = 1;
+  this.currentFrame = 0;
 
     this.game = new Array<Frame>();
 
-    for(let frame: number = 1; frame <= this.numOfFrames; frame++){
+    for(let frame: number = 0; frame < this.numOfFrames; frame++){
       
-      let frame = new Frame();
-      frame.numOfBalls = this.numOfBalls;
+      let frameObj = new Frame();
+      frameObj.numOfBalls = this.numOfBalls;
       
-      this.game.push(frame);
+      this.game.push(frameObj);
     }
   }
 
@@ -49,7 +49,7 @@ export class BowlingService {
     this.numOfFrames = numOfFrames;
     this.numOfBalls = numOfBalls;
     
-    for(let frame: number; frame <= numOfFrames; frame++){
+    for(let frame: number = 0; frame <= numOfFrames; frame++){
       
       let frame = new Frame();
       frame.numOfBalls = numOfBalls;
@@ -97,14 +97,20 @@ export class BowlingService {
   getTotalForGame() : number {
     
     let total: number = 0;
-    this.game.forEach(frame => total += frame.getTotal())
+
+    for(let frame: number = 0; frame < this.numOfFrames; frame++){
+      
+      console.log(`Frame total: ${this.game[frame].getTotal()}`)
+      
+      total += this.game[frame].getTotal();
+    }
+    
     
     return total;
   }
 
   setPinsDown(pinsDown: number){
     
-    console.log(`Number of frames: ${this.game.length}`);
     this.game[this.currentFrame].addBall(pinsDown);
 
     if(this.game[this.currentFrame].currentBall == this.game[this.currentFrame].numOfBalls){
@@ -114,10 +120,10 @@ export class BowlingService {
   }
 
   private isValidFrame(frameNum: number): boolean {
-    return (frameNum > this.numOfFrames);
+    return (frameNum < this.numOfFrames);
   }
 
   private isValidBall(ballNum: number, frame: Frame): boolean {
-    return (ballNum > frame.numOfBalls);
+    return (ballNum < frame.numOfBalls);
   }
 }
