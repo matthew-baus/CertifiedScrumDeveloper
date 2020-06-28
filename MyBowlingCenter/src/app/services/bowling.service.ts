@@ -63,6 +63,14 @@ export class BowlingService {
      return (this.game[frameNum1].getTotal() + this.game[frameNum2].getTotal());
   }
 
+  getTotalForGame() : number {
+    
+    let total: number = 0;
+    this.game.forEach(frame => total += frame.getTotal())
+    
+    return total;
+  }
+
   setPinsDown(pinsDown: number){
     
     this.game[this.currentFrame].addBall(pinsDown);
