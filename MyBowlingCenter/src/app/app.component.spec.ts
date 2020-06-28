@@ -20,6 +20,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+  it('should display name of my game', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.myGameTitle).toEqual('Unknown Team Name Game');
+  })
 });
 
 

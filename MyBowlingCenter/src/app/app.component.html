@@ -1,11 +1,12 @@
-  
-<h3 id="counter">{{ counter }}</h3>
-
-<button id="increment" (click)="increment()">INCREMENT</button>
-
-<button id="decrement" (click)="decrement()">DECREMENT</button>
-
-<button id="enterButton" (click)="enter()">ENTER</button>
+<div>
+    <p>Enter the name of your game:</p>
+    <input id="gameTitle">
+    <button id="enterButton" (click)="enter(gameTitle)">ENTER</button>
+</div>
+<div>
+    <p>Name of Game:</p>
+    <span>{{ myGameTitle }}</span>
+</div>
 
 <div>
     <p>Total for one ball</p>

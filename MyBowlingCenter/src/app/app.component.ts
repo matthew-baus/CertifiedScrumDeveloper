@@ -11,6 +11,7 @@ export class AppComponent {
   totalForOneFrame : number;
   totalForTwoFrames : number;
   totalForGame : number;
+  myGameTitle : string;
 
   constructor(
     private service: BowlingService
@@ -26,6 +27,8 @@ export class AppComponent {
     this.totalForTwoFrames = service.getTotalForTwoFrames(3,7)
 
     this.totalForGame = service.getTotalForGame()
+
+    this.myGameTitle = "Unknown Team Name Game";
   }
 
   counter = 0;
@@ -38,5 +41,7 @@ export class AppComponent {
     this.counter--
   }
 
-  enter():void{}
+  enter(gameTitle : string):void{
+    this.myGameTitle = gameTitle;
+  }
 }
