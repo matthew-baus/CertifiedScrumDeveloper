@@ -7,12 +7,27 @@ import { BowlingService } from './services/bowling.service';
   styleUrls: ["./app.component.sass"]
 })
 export class AppComponent {
+  totalForOneBall : number;
+  totalForOneFrame : number;
+  totalForTwoFrames : number;
+  totalForGame : number;
 
   constructor(
     private service: BowlingService
   ){
-    //service.initDefaultGame();
+    const scores : number[] = [5,3,0,5,4,2,8,0,0,9,1,1,2,8,9,0,3,3,4,2]; //total = 69
+    
+    service.initDefaultGame(scores);
+
+    this.totalForOneBall = service.getTotalForBall(6, 1)
+
+    this.totalForOneFrame = service.getTotalForFrame(4)
+
+    this.totalForTwoFrames = service.getTotalForTwoFrames(3,7)
+
+    this.totalForGame = service.getTotalForGame()
   }
+
   counter = 0;
 
   increment(): void {
