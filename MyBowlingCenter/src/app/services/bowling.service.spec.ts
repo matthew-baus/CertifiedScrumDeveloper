@@ -13,4 +13,18 @@ describe('BowlingService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should initialize a game'), () => {
+    
+    service.initDefaultGame();
+    
+    expect(service.game).toBeTruthy();
+  };
+
+  // it('should initialize a default game with 10 frames'), () => {
+    
+  //   service.initDefaultGame();
+    
+  //   expect(service.game.length).toEqual(10);
+  // };
 });

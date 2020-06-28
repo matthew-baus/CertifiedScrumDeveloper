@@ -13,6 +13,17 @@ export class BowlingService {
 
   constructor() { }
 
+  initDefaultGame() {
+
+    for(let frame: number; frame <= this.numOfFrames; frame++){
+      
+      let frame = new Frame();
+      frame.numOfBalls = this.numOfBalls;
+      
+      this.game.push(frame);
+    }
+  }
+
   initGame(numOfFrames: number, numOfBalls: number){
 
     this.numOfFrames = numOfFrames;
