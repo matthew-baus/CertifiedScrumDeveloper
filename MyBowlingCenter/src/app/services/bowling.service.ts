@@ -41,7 +41,6 @@ export class BowlingService {
     
     for(let pin:number = 0; pin < scores.length; pin++)
     {
-      console.log(`Current Pin: ${pin}`)
       this.setPinsDown(scores[pin]);
     }
   }
@@ -73,7 +72,7 @@ export class BowlingService {
     if(!this.isValidFrame(frameNum))
       return 0;
     
-    this.game[frameNum].getTotal();  
+    return this.game[frameNum].getTotal();  
   }
 
   getTotalForBall(frameNum: number, ballNum: number){
@@ -101,9 +100,7 @@ export class BowlingService {
     let total: number = 0;
 
     for(let frame: number = 0; frame < this.numOfFrames; frame++){
-      
-      console.log(`Frame total: ${this.game[frame].getTotal()}`)
-      
+            
       total += this.game[frame].getTotal();
     }
     
@@ -112,7 +109,6 @@ export class BowlingService {
   }
 
   setPinsDown(pinsDown: number){
-    console.log(`Set Pins Down: ${pinsDown}`)
     this.game[this.currentFrame].addBall(pinsDown);
 
     if(this.game[this.currentFrame].balls.length == this.game[this.currentFrame].numOfBalls){

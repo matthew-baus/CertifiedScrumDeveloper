@@ -14,8 +14,6 @@ export class Frame{
 
     addBall(numOfPins: number) {
         
-        
-        console.log(`add ball: ${numOfPins}`);
         this.balls.push(numOfPins);
     }
 
@@ -24,7 +22,6 @@ export class Frame{
         
         for(let ball : number = 0; ball < this.numOfBalls; ball++)
         {
-            console.log(`Ball score: ${this.balls[ball]}`);
             total += this.balls[ball];
         }
 
