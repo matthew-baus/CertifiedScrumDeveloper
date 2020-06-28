@@ -14,10 +14,7 @@ export class Frame{
 
     addBall(numOfPins: number) {
         
-        if(this.balls.length == (this.numOfBalls -1)){
-            this.currentBall = 0;
-            return;
-        }
+        
         console.log(`add ball: ${numOfPins}`);
         this.balls.push(numOfPins);
     }
