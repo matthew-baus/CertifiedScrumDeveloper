@@ -14,13 +14,16 @@ describe('BowlingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should initialize a game'), () => {
+  it('should initialize a game', () => {
     
-    service.initDefaultGame();
+    const scores : number[] = [5,3,0,5,4,2,8,0,0,9,1,1,2,8,9,0,3,3,4,2]; //total = 69
     
-    expect(service.game).toBeTruthy();
-  };
+    service.initDefaultGame(scores);
+    
+    expect(service.getTotalForGame()).toEqual(69);
+  });
 
+  
   // it('should initialize a default game with 10 frames'), () => {
     
   //   service.initDefaultGame();

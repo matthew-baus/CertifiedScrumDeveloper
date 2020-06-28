@@ -1,13 +1,19 @@
 export class Frame{
+    
     currentBall: number = 1;
     numOfBalls: number = 2;
-    balls: number[];
+    balls: Array<number>;
+
+    contructor(){
+        this.balls = new Array<number>();
+    }
 
     setNumberOfBalls(rolls: number) {
         this.numOfBalls = rolls; 
     }
 
     addBall(numOfPins: number) {
+        
         if(this.balls.length == this.numOfBalls){
             this.currentBall = 1;
             return;

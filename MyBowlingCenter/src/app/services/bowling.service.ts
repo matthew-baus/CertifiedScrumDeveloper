@@ -9,19 +9,39 @@ export class BowlingService {
   numOfBalls: number = 2;
   numOfFrames: number = 10;
   currentFrame: number = 1;
-  game: Frame[];
+  game : Array<Frame>;
 
   constructor() { }
 
-  initDefaultGame() {
+  initDefaultGame(scores: number[]) {
 
-    for(let frame: number; frame <= this.numOfFrames; frame++){
+    this.createGame();
+    this.populateGame(scores);
+    
+  }
+
+  private createGame() {
+    
+  this.numOfBalls = 2;
+  this.numOfFrames = 10;
+  this.currentFrame = 1;
+
+    this.game = new Array<Frame>();
+
+    for(let frame: number = 1; frame <= this.numOfFrames; frame++){
       
       let frame = new Frame();
       frame.numOfBalls = this.numOfBalls;
       
       this.game.push(frame);
     }
+  }
+
+  private populateGame(scores: number[]){
+    
+    scores.forEach(pinsDown => {
+      this.setPinsDown(pinsDown);
+    });
   }
 
   initGame(numOfFrames: number, numOfBalls: number){
@@ -84,6 +104,7 @@ export class BowlingService {
 
   setPinsDown(pinsDown: number){
     
+    console.log(`Number of frames: ${this.game.length}`);
     this.game[this.currentFrame].addBall(pinsDown);
 
     if(this.game[this.currentFrame].currentBall == this.game[this.currentFrame].numOfBalls){
